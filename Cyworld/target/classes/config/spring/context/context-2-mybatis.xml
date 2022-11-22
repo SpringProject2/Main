@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- SqlSessionFactoryBean: SqlSession에 db를 연결시키기 위해 만든 클래스이고 SqlSessionTemplate에 factoryBean 값을 넘겨줘야 한다.
+			factoryBean에는 사용자 id / pw 가 들어가 있음 
+		 -->
+		
+			<property name="dataSource" ref="ds"/>
+			<property name="configLocation" value="classpath:config/mybatis/mybatis-config.xml"/>
+			<!-- mapper를 어떤 것을 쓸 것이고 어떤 것을 관리할 것인가를 등록 -->
+		
+		</bean>
+	<!-- 얘가 있어야 Sql session을 만들 수 있음 -> mapper로 접근하기 위한 객체  -->
+	<bean id="sqlSessionBean" class="org.mybatis.spring.SqlSessionTemplate"> 
+		<!-- CI(constructor injection) : 생성자를 통해 값을 주입하는 방식  -->	
+		<constructor-arg ref="factoryBean"/>
+	</bean>
+</beans>

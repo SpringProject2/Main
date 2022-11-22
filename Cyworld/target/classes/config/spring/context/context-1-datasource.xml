@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<context:property-placeholder location="classpath*:config/mybatis/db.properties"/>
+		
+		<!-- DB접속을 위한 클래스 생성  -->
+			<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+				<!-- SI(setter injection): property속성을 통해 특정 클래스의 setter에 값을 넣는 것 -->
+				<property name="driverClassName" value="${driver}"/>
+				<!-- proerty의 value에 값을 넣는 작업은 private에 setter로 값을 집어넣는 것과 같은 의미이다!!! 
+				driverClassName = method 
+				value = 값 
+					-->
+					<property name="url" value="${url}"/>
+					<property name="username" value="${user}"/>
+					<property name="password" value="${password}"/>
+					<!-- DB 동시 접속자의 수를 지정하는 것. -->
+					<property name="maxActive" value="10"/>
+					<!-- maxActive의 value값이 많이 높으면 value하나당 쓰레드 하나가 발생하기 때문에 좋지 않다.
+						보통 네이버 같은 경우도 대략 500? 이면 충분 
+					 -->
+			</bean>
+</beans>
