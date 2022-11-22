@@ -41,7 +41,7 @@ public class MainController {
 	
 	//일촌평  쓰기 
 	@RequestMapping("/insert.do")
-	public String insert( MainVO vo) { 
+	public String insert( MainVO vo ) { 
 		// servlet-context에서 @Autowired 설정 해서 위에 파라미터 안에  HttpServletRequest request 안써도 됨!
 		
 		

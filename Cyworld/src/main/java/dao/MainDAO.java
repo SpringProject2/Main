@@ -22,6 +22,7 @@ SqlSession sqlSession;
 	//새 글 추가
 		public int insert(MainVO vo) {
 			//mapper로 딱 한개의 객체만 넘겨줄 수 있다. 
+			System.out.println("t:"+vo.getIlchonpyeongText());
 			int res = sqlSession.insert("m.main_insert", vo);
 			return res; 
 		}

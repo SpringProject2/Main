@@ -3,8 +3,8 @@ package vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MainVO {
- private int today, todayTotal;
- private String todayIs, profileImgName, profileText, history, ilchonList, introduceBanner, search, bgmName, ilchonpyeong;
+ private int today, todayTotal, idx;
+ private String todayIs, profileImgName, profileText, history, ilchonList, introduceBanner, search, bgmName, ilchonpyeongText;
 
  //파일을 받기 위한 클래스
  private MultipartFile photo;
@@ -12,6 +12,21 @@ public class MainVO {
  public MultipartFile getPhoto() {
 		return photo;
 	}
+
+public int getIdx() {
+	return idx;
+}
+
+public void setIdx(int idx) {
+	this.idx = idx;
+}
+
+public String getIlchonpyeongText() {
+	return ilchonpyeongText;
+}
+public void setIlchonpyeongText(String ilchonpyeongText) {
+	this.ilchonpyeongText = ilchonpyeongText;
+}
 	public void setPhoto(MultipartFile photo) {
 		this.photo = photo;
 	}
@@ -76,12 +91,7 @@ public String getBgmName() {
 public void setBgmName(String bgmName) {
 	this.bgmName = bgmName;
 }
-public String getIlchonpyeong() {
-	return ilchonpyeong;
-}
-public void setIlchonpyeong(String ilchonpyeong) {
-	this.ilchonpyeong = ilchonpyeong;
-}
+
  
  
 }

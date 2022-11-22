@@ -6,14 +6,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
  <!-- 일촌평 조회 -->
 <select id="ilchon_list" resultType="main">
-	select * from Ilchonpyeong order by ref DESC
+	select * from Ilchonpyeong order by idx DESC
 </select>
 
 <!-- 새 글 추가 -->
 <insert id = "main_insert" parameterType="main">
 insert into Ilchonpyeong values(
-	seq_main_ref.nextVal,
-	#{Ilchonpyeong}
+	seq_Ilchonpyeong_idx.nextVal,
+	#{ilchonpyeongText}
 	<!-- VO나 Map에 있는 key 값을 가져올 때 #{} 이런 식으로 쓴다.  -->
 )
 </insert>

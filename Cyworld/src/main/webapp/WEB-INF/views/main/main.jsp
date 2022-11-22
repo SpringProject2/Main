@@ -12,10 +12,12 @@
 
 <script>
 	function registration(f){
-		var Ilchonpyeong = f.Ilchonpyeong.value;
+		alert("dd");
+		                     
+		var ilchonpyeongText = f.ilchonpyeongText.value;
 		
 		//유효성 체크 
-		if( Ilchonpyeong == ""){
+		if( ilchonpyeongText == ""){
 			alert("일촌평을 작성해주세요.");
 			return;
 		}
@@ -29,6 +31,7 @@
 </style>
 </head>
 <body>
+
  <div class="container">
                 <section class="left-section">
                         <div class="left-dashed-line">
@@ -69,13 +72,19 @@
                                    <div class="miniRoom"><img src="resources/images/mainroom.png" alt=""></div>
                                     <div class=" Crayon box animate__animated animate__bounce animate__infinite"><img src="resources/images/Crayon.png" alt=""></div>
                                 </div>
+                                <form method="post">
                                 <div class="Ilchonpyeong">
-                                    <span>일촌평</span> <input type="text" name="Ilchonpyeong" placeholder="일촌과 나누고 싶은 이야기를 남겨보세요"></input>
+                                
+                                    <span>일촌평</span> <input type="text" name="ilchonpyeongText" placeholder="일촌과 나누고 싶은 이야기를 남겨보세요"></input>
                                     <input class="Ic-registration" type="button" value="확인" onclick="registration(this.form);"></input>
+                                 
                                 </div>
+                                 </form>
+                                <c:forEach var="vo" items="${list }">
                                 <div class="IlchonpyeongList">
-                                <div class="Ilchon" >${ vo.Ilchonpyeong }</div>
+                                <div class="Ilchon" >ㆍ ${ vo.ilchonpyeongText }</div>
                                 </div>
+                                 </c:forEach>
                                 </aside>
                             </div>
                         </div>
@@ -95,5 +104,6 @@
                         </div>
                 </section>
     </div>
+  
 </body>
 </html>
